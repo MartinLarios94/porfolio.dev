@@ -1,6 +1,9 @@
 ---
 import NextJS from "./icons/NextJS.astro"
+import React from "./icons/React.astro"
 import Tailwind from "./icons/Tailwind.astro"
+import StyledComponents from "./icons/StyledComponents.astro"
+import Graphql from "./icons/Graphql.astro"
 
 const TAGS = {
   NEXT: {
@@ -13,23 +16,58 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  REACT: {
+    name: "React.js",
+    class: "bg-[#003159] text-white",
+    icon: React,
+  },
+  REACT_NATIVE: {
+    name: "React Native",
+    class: "bg-[#003159] text-white",
+    icon: React,
+  },
+  STYLED_COMPONENTS: {
+    name: "Styled Components",
+    class: "bg-black text-white",
+    icon: StyledComponents,
+  },
+  GRAPHQL: {
+    name: "GraphQL",
+    class: "bg-black text-white",
+    icon: Graphql,
+  }
 }
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: "[WEB] - Self.inc - Self Credit Builder: Build Credit. Build Savings. Build Dreams.",
     description:
-      "Created from scratch with Next.js and Tailwind CSS. It's a library with SVG logos from the most popular brands. Optimized for SEO and performance.",
-    link: "https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
-    image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "This site was created using Next.js, Styled Components and Apollo Client. Designed with meticulous attention to every detail, this site stands out for its exceptional performance and smooth user experience.",
+    link: "https://www.self.inc/",
+    image: "/projects/self.png",
+    tags: [TAGS.NEXT, TAGS.STYLED_COMPONENTS, TAGS.GRAPHQL],
+  },
+  {
+    title: "[APP] - Self.inc - Self Credit Builder: Build Credit. Build Savings. Build Dreams.",
+    description:
+      "This site was created using React Native, Styled Components and Apollo Client. Designed with meticulous attention to every detail, this site stands out for its exceptional performance and smooth user experience.",
+    link: "https://apps.apple.com/us/app/impact-credit-scores-self/id1364215562?ls=1",
+    image: "/projects/self-app.png",
+    tags: [TAGS.REACT_NATIVE, TAGS.STYLED_COMPONENTS, TAGS.GRAPHQL],
+  },
+  {
+    title: "Sotheby's Motorsport",
+    description:
+      "This site was created using Next.js, TailwindCSS, Redux. In this site you can make a bit to buy a luxury sport car",
+    link: "https://sothebysmotorsport.com/",
+    image: "/projects/sotheby.png",
+    tags: [TAGS.REACT_NATIVE, TAGS.STYLED_COMPONENTS, TAGS.GRAPHQL],
   },
 ]
 ---
 
 {
-  PROJECTS.map(({ image, title, description, tags }) => (
-    <article>
+  PROJECTS.map(({ image, title, description, tags, link }) => (
+    <article class="lg:mb-10">
       <h3 class="text-2xl font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
         {title}
       </h3>
@@ -41,7 +79,7 @@ const PROJECTS = [
               class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 border border-white/10`}
             >
               <tag.icon class="size-4" />
-              {tag.name}
+              <a href={link}>{tag.name}</a>
             </span>
           </li>
         ))}
