@@ -27,7 +27,6 @@ import Daisy from "../components/icons/Daisy.astro";
 /* UTILS */
 
 import { TESTIMONIALS } from "../utils/testimonials";
-import { BASE_URL, TOKEN } from "../utils/api";
 
 const WORTH_REPOS = [
   {
@@ -64,18 +63,18 @@ const WORTH_REPOS = [
   },
 ];
 
-const fetchGitHub = await fetch(`${BASE_URL}/users/MartinLarios94/repos`, {
+const fetchGitHub = await fetch(`${import.meta.env.PUBLIC_GITHUB_API}/users/MartinLarios94/repos`, {
   method: "GET",
   headers: {
-    Authorization: `Bearer ${TOKEN}`,
+    Authorization: `Bearer ${import.meta.env.PUBLIC_GITHUB_TOKEN}`,
   },
 });
 
-const fetchData = async (url: string): Promise<Record<string, string>> => {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-};
+// const fetchData = async (url: string): Promise<Record<string, string>> => {
+//   const response = await fetch(url);
+//   const data = await response.json();
+//   return data;
+// };
 
 const repositories: GitHubReponse[] = await fetchGitHub.json();
 const repos = repositories
