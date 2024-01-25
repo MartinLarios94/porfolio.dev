@@ -1,19 +1,102 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import Badge from "../components/Badge.astro"
-import SectionContainer from "../components/SectionContainer.astro"
-import LinkedInIcon from "../components/icons/LinkedIn.astro"
-import SocialPill from "../components/SocialPill.astro"
-import GitHubIcon from "../components/icons/GitHub.astro"
-import MailIcon from "../components/icons/Mail.astro"
-import Experience from "../components/Experience.astro"
-import Briefcase from "../components/icons/Briefcase.astro"
-import CodeIcon from "../components/icons/Code.astro"
-import Projects from "../components/Projects.astro"
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Testimonials from "../components/Testimonials.astro";
+import type { GitHubReponse } from "../utils/types";
+
+/* ICONS */
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import SocialPill from "../components/SocialPill.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import Experience from "../components/Experience.astro";
+import Briefcase from "../components/icons/Briefcase.astro";
+import CodeIcon from "../components/icons/Code.astro";
+import Projects from "../components/Projects.astro";
+import AstroIcon from "../components/icons/AstroIcon.astro";
+import React from "../components/icons/React.astro";
+import StyledComponents from "../components/icons/StyledComponents.astro";
+import Tailwind from "../components/icons/Tailwind.astro";
+import ReactRouter from "../components/icons/ReactRouter.astro";
+import Typescript from "../components/icons/Typescript.astro";
+import ReactNative from "../components/icons/ReactNative.astro";
+import Axios from "../components/icons/Axios.astro";
+import Daisy from "../components/icons/Daisy.astro";
+
+/* UTILS */
+
+import { TESTIMONIALS } from "../utils/testimonials";
+import { BASE_URL, TOKEN } from "../utils/api";
+
+const WORTH_REPOS = [
+  {
+    id: 448146566,
+    techStack: [React, Tailwind, Typescript, Axios, ReactRouter],
+  },
+  {
+    id: 440003086,
+    techStack: [React, Tailwind, ReactRouter, Typescript],
+  },
+  {
+    id: 539525521,
+    techStack: [],
+  },
+  {
+    id: 721349241,
+    techStack: [AstroIcon, Tailwind, Typescript],
+  },
+  {
+    id: 433057976,
+    techStack: [ReactNative, StyledComponents, Typescript],
+  },
+  {
+    id: 741006545,
+    techStack: [AstroIcon, Tailwind, Typescript, Daisy],
+  },
+  {
+    id: 432052697,
+    techStack: [ReactNative, StyledComponents, Typescript],
+  },
+  {
+    id: 506769477,
+    techStack: [ReactNative, StyledComponents, Typescript],
+  },
+];
+
+const fetchGitHub = await fetch(`${BASE_URL}/users/MartinLarios94/repos`, {
+  method: "GET",
+  headers: {
+    Authorization: `Bearer ${TOKEN}`,
+  },
+});
+
+const fetchData = async (url: string): Promise<Record<string, string>> => {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+};
+
+const repositories: GitHubReponse[] = await fetchGitHub.json();
+const repos = repositories
+  .filter((repo) => WORTH_REPOS.some((rep) => rep.id === repo.id))
+  .map((repo) => {
+    return {
+      ...repo,
+      techStack: WORTH_REPOS.find((rep) => rep.id === repo.id)?.techStack,
+    };
+  });
+// const fetchLanguages = filteredRepos.map(repo => fetchData(repo.languages_url))
+// const repos = await Promise.all(fetchLanguages).then(result => {
+//   return filteredRepos.map((item, index) => ({
+//       ...item,
+//       languages: result[index] // Agregar el resultado de la solicitud fetch
+//     }));
+// })
 ---
 
 <Layout
-  title="Martin Larios Portfolio - With +5 years of experience."
+  title="martin.dev"
   description="Software Engineer specialized in high quality projects."
 >
   <main class="px-4">
@@ -43,7 +126,7 @@ import Projects from "../components/Projects.astro"
         >
           Senior Software Engineer</span
         >
-         .<span class="text-red-800 dark:text-red-200">
+        .<span class="text-red-800 dark:text-red-200">
           From Managua, Nicaragua 🇳🇮</span
         >.
         <span class="text-sky-800 dark:text-sky-200"
@@ -52,17 +135,17 @@ import Projects from "../components/Projects.astro"
       </h2>
 
       <nav class="flex gap-4 mt-8 flex-wrap">
-        <SocialPill href="https://linkedin.com/in/martin-;arops">
+        <SocialPill href="https://linkedin.com/in/martin-larios">
           <LinkedInIcon class="size-4 md:size-6" />
-           LinkedIn
+          LinkedIn
         </SocialPill>
         <SocialPill href="https://github.com/MartinLarios94">
           <GitHubIcon class="size-4 md:size-6" />
-           GitHub
+          GitHub
         </SocialPill>
         <SocialPill href="mailto:mrlarios_1994@hotmail.es">
           <MailIcon class="size-4 md:size-6" />
-           Mail me
+          Mail me
         </SocialPill>
       </nav>
     </SectionContainer>
@@ -72,19 +155,59 @@ import Projects from "../components/Projects.astro"
         class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
       >
         <Briefcase class="size-7" />
-         Experience
+        Experience
       </h2>
       <Experience />
     </SectionContainer>
 
-    <SectionContainer id="proyectos">
+    <SectionContainer id="project" class="lg:w-[900px] border-cyan-200  border-1 pb-10 md:mx-auto md:w-[700px]">
       <h2
-        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
+        class="text-2xl lg:text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
+      >
+        <GitHubIcon class="size-7" />
+        My Github
+      </h2>
+      <div class="my-5">
+        <div class="carousel carousel-center max-w-[310px] space-x-4 rounded-box lg:space-x-8 md:max-w-2xl lg:max-w-3xl">
+          {repos.sort((a, b) => {
+            const dateA = new Date(a.created_at).getTime();
+            const dateB = new Date(b.created_at).getTime();
+  
+            if (dateA < dateB) {
+              return 1;
+            } else if (dateA > dateB) {
+              return -1;
+            } else {
+              return 0;
+            }
+          }).map(repo =>
+            <Projects repoInfo={repo} />
+          )}
+        </div
+      </div>
+    </SectionContainer>
+
+    <SectionContainer id="testimonials" class="lg:w-[900px] border-cyan-200 border-1 mt-20 ">
+      <h2
+        class="text-2xl lg:text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
       >
         <CodeIcon class="size-7" />
-         Projects
+        People who trust in my job
       </h2>
-      <Projects />
+      {
+        TESTIMONIALS.slice(0, 3).map((testimonial) => (
+          <Testimonials {...testimonial} />
+        ))
+      }
+      {
+        TESTIMONIALS.length > 3 && (
+          <div class="flex justify-center ">
+            <button class="btn btn-sm btn-outline w-60">
+              <a href="/testimonials">See more...</a>
+            </button>
+          </div>
+        )
+      }
     </SectionContainer>
   </main>
 </Layout>

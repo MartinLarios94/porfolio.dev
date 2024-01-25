@@ -34,11 +34,12 @@ export const experience_EN = [
         link: "https://ld.co.cr/",
       },
       {
-        logo: "/projects/briefcase.webp",
+        logo: "/projects/mscorp.png",
         date: "Jul 2018 - Oct 2019 (Nicaragua 🇳🇮)",
         title: "MSCorp - Software Developer",
         description:
           "At MSCorp I worked as a software developer creating an ERP using ASP.net Framework, DevExpress and Microsoft SQL Server.",
+        link: "https://mscorp.group/",
       },
 ]
 

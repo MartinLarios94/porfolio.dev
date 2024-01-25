@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro"
+
+import SectionContainer from '../../components/SectionContainer.astro'
+import Testimonials from '../../components/Testimonials.astro'
+
+import { TESTIMONIALS } from '../../utils/testimonials'
+---
+
+<Layout title="People who trust in me" description="Testimonials">
+    <SectionContainer class="my-10 px-5">
+        <div class="">
+            {TESTIMONIALS.map(testimonial => (
+                <Testimonials {...testimonial} />
+            ))}
+        </div>
+    </SectionContainer>
+    
+</Layout>>

@@ -1,95 +1,35 @@
 ---
-import NextJS from "./icons/NextJS.astro"
-import React from "./icons/React.astro"
-import Tailwind from "./icons/Tailwind.astro"
-import StyledComponents from "./icons/StyledComponents.astro"
-import Graphql from "./icons/Graphql.astro"
+import GitHubIcon from "./icons/GitHub.astro";
+import type { GitHubReponse } from "../utils/types";
 
-const TAGS = {
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: NextJS,
-  },
-  TAILWIND: {
-    name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
-    icon: Tailwind,
-  },
-  REACT: {
-    name: "React.js",
-    class: "bg-[#003159] text-white",
-    icon: React,
-  },
-  REACT_NATIVE: {
-    name: "React Native",
-    class: "bg-[#003159] text-white",
-    icon: React,
-  },
-  STYLED_COMPONENTS: {
-    name: "Styled Components",
-    class: "bg-black text-white",
-    icon: StyledComponents,
-  },
-  GRAPHQL: {
-    name: "GraphQL",
-    class: "bg-black text-white",
-    icon: Graphql,
-  }
-}
-const PROJECTS = [
-  {
-    title: "[WEB] - Self.inc - Self Credit Builder: Build Credit. Build Savings. Build Dreams.",
-    description:
-      "This site was created using Next.js, Styled Components and Apollo Client. Designed with meticulous attention to every detail, this site stands out for its exceptional performance and smooth user experience.",
-    link: "https://www.self.inc/",
-    image: "/projects/self.png",
-    tags: [TAGS.NEXT, TAGS.STYLED_COMPONENTS, TAGS.GRAPHQL],
-  },
-  {
-    title: "[APP] - Self.inc - Self Credit Builder: Build Credit. Build Savings. Build Dreams.",
-    description:
-      "This site was created using React Native, Styled Components and Apollo Client. Designed with meticulous attention to every detail, this site stands out for its exceptional performance and smooth user experience.",
-    link: "https://apps.apple.com/us/app/impact-credit-scores-self/id1364215562?ls=1",
-    image: "/projects/self-app.png",
-    tags: [TAGS.REACT_NATIVE, TAGS.STYLED_COMPONENTS, TAGS.GRAPHQL],
-  },
-  {
-    title: "Sotheby's Motorsport",
-    description:
-      "This site was created using Next.js, TailwindCSS, Redux. In this site you can make a bit to buy a luxury sport car",
-    link: "https://sothebysmotorsport.com/",
-    image: "/projects/sotheby.png",
-    tags: [TAGS.REACT_NATIVE, TAGS.STYLED_COMPONENTS, TAGS.GRAPHQL],
-  },
-]
+type Props = {
+  repoInfo: GitHubReponse & { techStack: ((_props: Record<string, any>) => any)[] | undefined }
+};
+
+const {
+  repoInfo: { name: repoName, html_url: repoUrl, description, techStack}
+} = Astro.props;
+
 ---
 
-{
-  PROJECTS.map(({ image, title, description, tags, link }) => (
-    <article class="lg:mb-10">
-      <h3 class="text-2xl font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
-        {title}
-      </h3>
-      <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul class="flex gap-x-2 flex-row mb-2">
-        {tags.map((tag) => (
-          <li>
-            <span
-              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 border border-white/10`}
-            >
-              <tag.icon class="size-4" />
-              <a href={link}>{tag.name}</a>
-            </span>
-          </li>
+<article
+  class="carousel-item border border-sky-400 rounded-lg m-2 py-5 mb-5 max-w-[300px]
+    flex flex-col sm:max-w-sm md:max-w-lg hover:shadow-xl hover:shadow-red-100 hover:cursor-pointer">
+  <div class="flex flex-row items-center justify-start gap-x-2 px-3">
+    <GitHubIcon class="size-6 "/>
+    <h3 class="text-lg my-2 font-semibold text-gray-500 dark:text-yellow-200">
+      <a href={repoUrl}>{repoName}</a>
+    </h3>
+  </div>
+  <p class="text-md font-mono font-light m-2 text-pretty w-60">{description}</p>
+  <div class="flex items-center gap-x-4 mx-2">
+    {techStack && techStack.length > 0 && <h3>Tech stack: </h3>}
+    {techStack && (
+      <>
+        {techStack.map(Item => (
+          <Item class="size-4" />
         ))}
-      </ul>
-      <img
-        loading="lazy"
-        class="rounded shadow-2xl shadow-white/10 aspect-video"
-        src={image}
-        alt={`Captura de pantalla del proyecto ${image}`}
-      />
-    </article>
-  ))
-}
+      </>
+    )}
+  </div>
+</article>

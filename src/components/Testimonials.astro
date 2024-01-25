@@ -1,0 +1,56 @@
+---
+type Props = {
+    testimonialTitle: string
+    testimonialDescription: string
+    avatarImage: string
+    name: string
+    title: string
+}
+const { testimonialTitle, testimonialDescription, avatarImage, name, title } = Astro.props
+---
+
+<section class="w-full lg:py-5 hover:drop-shadow-lg hover:shadow-cyan-500/50">
+  <div class="mx-auto px-4">
+    <div class="flex items-center justify-center -mx-4">
+      <div class="w-full sm:max-w-xl lg:max-w-2xl p-2 mb-4 lg:mb-0">
+        <div
+          class="border border-orange-500 bg-white rounded-t-3xl rounded-br-3xl mb-8 py-8"
+        >
+          <div class="p-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="22"
+              viewBox="0 0 30 22"
+              fill="none"
+            >
+              <path
+                d="M13.1971 4.75862C10.9375 4.89655 9.11058 5.47127 7.71635 6.48276C6.37019 7.49425 5.57692 8.87356 5.33654 10.6207C5.28846 11.2184 5.28846 11.8621 5.33654 12.5517C5.72115 12 6.20192 11.6092 6.77885 11.3793C7.35577 11.1494 8.05289 11.0345 8.87019 11.0345C10.1683 11.0345 11.2981 11.5172 12.2596 12.4828C13.2212 13.4483 13.7019 14.7126 13.7019 16.2759C13.7019 17.977 13.125 19.3563 11.9712 20.4138C10.8173 21.4713 9.30289 22 7.42788 22C5.07212 22 3.24519 21.1724 1.94712 19.5172C0.649038 17.8161 0 15.5862 0 12.8276C0 9.47126 1.05769 6.57471 3.17308 4.13793C5.33654 1.65517 8.67789 0.275861 13.1971 0V4.75862ZM29.4952 4.75862C27.1875 4.89655 25.3606 5.47127 24.0144 6.48276C22.6683 7.49425 21.875 8.87356 21.6346 10.6207C21.5865 11.0345 21.5625 11.6782 21.5625 12.5517C21.9952 12 22.5 11.6092 23.0769 11.3793C23.6538 11.1494 24.351 11.0345 25.1683 11.0345C26.4663 11.0345 27.5962 11.5172 28.5577 12.4828C29.5192 13.4483 30 14.7126 30 16.2759C30 17.977 29.4231 19.3563 28.2692 20.4138C27.1154 21.4713 25.601 22 23.726 22C21.3221 22 19.4712 21.1724 18.1731 19.5172C16.9231 17.8161 16.2981 15.5862 16.2981 12.8276C16.2981 9.47126 17.3558 6.57471 19.4712 4.13793C21.6346 1.65517 24.976 0.275861 29.4952 0V4.75862Z"
+                fill="#FF7100"></path>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold font-heading mb-4 pl-6">
+            {testimonialTitle}
+          </h2>
+          <p class="text-gray-600 p-6">
+            {testimonialDescription}
+          </p>
+        </div>
+        <div class="flex items-center gap-4 flex-wrap">
+          <div class="rounded-full bg-orange-50 overflow-hidden">
+            <img
+              src={avatarImage}
+              alt=""
+              height="46"
+              width="46"
+            />
+          </div>
+          <div>
+            <h2 class="font-semibold mb-1">{name}</h2>
+            <p class="text-purple-200 text-sm">{title}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
