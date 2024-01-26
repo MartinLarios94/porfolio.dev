@@ -13,18 +13,18 @@ export const TESTIMONIALS = [
         name: 'Enrique Flores',
         title: 'Senior Software Engineer',
     },
-    {
-        testimonialTitle: 'Great coworker, excelent professional',
-        testimonialDescription: 'I`ve worked with Martin and he is a wonderful person, always motivated to do his best',
-        avatarImage: '/MartinPortfolio.jpeg',
-        name: 'Martin Larios',
-        title: 'Software Engineer',
-    },
-    {
-        testimonialTitle: 'Great coworker, excelent professional',
-        testimonialDescription: 'I`ve worked with Martin and he is a wonderful person, always motivated to do his best',
-        avatarImage: '/MartinPortfolio.jpeg',
-        name: 'Martin Larios',
-        title: 'Software Engineer',
-    },
+    // {
+    //     testimonialTitle: 'Great coworker, excelent professional',
+    //     testimonialDescription: 'I`ve worked with Martin and he is a wonderful person, always motivated to do his best',
+    //     avatarImage: '/MartinPortfolio.jpeg',
+    //     name: 'Martin Larios',
+    //     title: 'Software Engineer',
+    // },
+    // {
+    //     testimonialTitle: 'Great coworker, excelent professional',
+    //     testimonialDescription: 'I`ve worked with Martin and he is a wonderful person, always motivated to do his best',
+    //     avatarImage: '/MartinPortfolio.jpeg',
+    //     name: 'Martin Larios',
+    //     title: 'Software Engineer',
+    // },
 ]

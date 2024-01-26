@@ -23,6 +23,7 @@ import Typescript from "../components/icons/Typescript.astro";
 import ReactNative from "../components/icons/ReactNative.astro";
 import Axios from "../components/icons/Axios.astro";
 import Daisy from "../components/icons/Daisy.astro";
+import Download from "../components/icons/Download.astro";
 
 /* UTILS */
 
@@ -146,6 +147,10 @@ const repos = repositories
           <MailIcon class="size-4 md:size-6" />
           Mail me
         </SocialPill>
+        <SocialPill href="/cv">
+          <Download class="size-4 md:size-6" />
+          Download my CV
+        </SocialPill>
       </nav>
     </SectionContainer>
 
@@ -167,7 +172,7 @@ const repos = repositories
         My Github
       </h2>
       <div class="my-5">
-        <div class="carousel carousel-center max-w-[310px] space-x-4 rounded-box lg:space-x-8 md:max-w-2xl lg:max-w-3xl">
+        <div class="carousel carousel-center w-full space-x-4 rounded-box lg:space-x-8 lg:max-w-3xl">
           {repos.sort((a, b) => {
             const dateA = new Date(a.created_at).getTime();
             const dateB = new Date(b.created_at).getTime();

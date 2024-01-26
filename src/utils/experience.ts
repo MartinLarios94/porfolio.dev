@@ -8,15 +8,15 @@ export const experience_EN = [
           "At Growth Acceleration Partners, I currently work as a Senior Software Engineer, using ReactJs+Typescript+NextJs, React Native CLI+Typescript, GraphQL, ApolloClient, Docker, AWS to create and build new websites and mobile applications in addition to this, as Engineering Team Lead, my role is to provide guidance, direction and support to a team of talented engineers. I am responsible for overseeing day-to-day operations, ensuring projects are completed efficiently and on time.",
         link: "https://www.growthaccelerationpartners.com/",
       },
-      {
-        logo: "/projects/paktolus.svg",
-        date: "Mar 2022 - Oct 2023 (USA 🇺🇸)",
-        title:
-          "Paktolus Solutions LLC - Senior Full Stack Engineer",
-        description:
-          "At Paktolus Solutions LLC I worked as a Software Engineer building websites and mobile applications using ReactJs+Typescript, React Native + Expo, Docker, AWS, NestJs+Typescript, Strapi Headless CMS. In addition to this, I was working as a Data Engineer which my role was to automate reports using tools such as Looker Studio and BigQuery, in turn, I was using tools to streamline the support process such as Jira, Confluence, Zendesk.",
-        link: "https://www.growthaccelerationpartners.com/",
-      },
+      // {
+      //   logo: "/projects/paktolus.svg",
+      //   date: "Mar 2022 - Oct 2023 (USA 🇺🇸)",
+      //   title:
+      //     "Paktolus Solutions LLC - Senior Full Stack Engineer",
+      //   description:
+      //     "At Paktolus Solutions LLC I worked as a Software Engineer building websites and mobile applications using ReactJs+Typescript, React Native + Expo, Docker, AWS, NestJs+Typescript, Strapi Headless CMS. In addition to this, I was working as a Data Engineer which my role was to automate reports using tools such as Looker Studio and BigQuery, in turn, I was using tools to streamline the support process such as Jira, Confluence, Zendesk.",
+      //   link: "https://www.growthaccelerationpartners.com/",
+      // },
       {
         logo: "/projects/ns.jpeg",
         date: "Aug 2021 - Jul 2022 (Nicaragua 🇳🇮)",
