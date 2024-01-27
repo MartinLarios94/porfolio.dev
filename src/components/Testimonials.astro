@@ -9,12 +9,12 @@ type Props = {
 const { testimonialTitle, testimonialDescription, avatarImage, name, title } = Astro.props
 ---
 
-<section class="w-full lg:py-5 hover:drop-shadow-lg hover:shadow-cyan-500/50">
-  <div class="mx-auto px-4">
+<div class="lg:py-5">
+  <div class="px-4 lg:w-[700px]">
     <div class="flex items-center justify-center -mx-4">
-      <div class="w-full sm:max-w-xl lg:max-w-2xl p-2 mb-4 lg:mb-0">
+      <div class="w-full sm:max-w-xl p-2 mb-4 lg:mb-0">
         <div
-          class="border border-orange-500 bg-white rounded-t-3xl rounded-br-3xl mb-8 py-8"
+          class="border border-orange-500 bg-white rounded-t-3xl rounded-br-3xl mb-8 py-8 dark:border-cyan-300 dark:bg-transparent hover:shadow-xl hover:shadow-red-100 dark:hover:shadow-green-500"
         >
           <div class="p-6">
             <svg
@@ -29,10 +29,10 @@ const { testimonialTitle, testimonialDescription, avatarImage, name, title } = A
                 fill="#FF7100"></path>
             </svg>
           </div>
-          <h2 class="text-xl font-bold font-heading mb-4 pl-6">
+          <h2 class="text-xl font-bold font-heading mb-4 px-6 dark:text-yellow-300">
             {testimonialTitle}
           </h2>
-          <p class="text-gray-600 p-6">
+          <p class="text-gray-600 p-6 dark:text-white">
             {testimonialDescription}
           </p>
         </div>
@@ -47,7 +47,7 @@ const { testimonialTitle, testimonialDescription, avatarImage, name, title } = A
           </div>
           <div>
             <h2 class="font-semibold mb-1">{name}</h2>
-            <p class="text-purple-200 text-sm">{title}</p>
+            <p class="text-sky-300 text-sm ">{title}</p>
           </div>
         </div>
       </div>

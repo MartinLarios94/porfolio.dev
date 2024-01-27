@@ -23,11 +23,11 @@ export const experience_EN = [
         title: "Nicasource S.A - Software Engineer",
         description:
           "At Nicasource S.A I worked as a Software Engineer building websites and mobile apps using ReactJs+Typescript, React Native + Expo, Docker, AWS, NestJs+Typescript, Strapi Headless CMS.",
-        link: "https://www.paktolus.com/",
+        link: "https://www.nicasource.com/",
       },
       {
         logo: "/projects/ld.png",
-        date: "Oct 2019 - August 2021 (Costa Rica 🇨🇷)",
+        date: "Oct 2019 - Aug 2021 (Costa Rica 🇨🇷)",
         title: "Logical Data - Application Software Developer",
         description:
           "At Logical Data I worked as an Application Software Developer at Logical Data, built websites and integrated SAP B1 using ReactJs, ASP.net Core 3.1, SAP SDK, Microsoft SQL Server and Azure.",

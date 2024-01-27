@@ -27,7 +27,9 @@ const {
     {techStack && (
       <>
         {techStack.map(Item => (
-          <Item class="size-4" />
+          <div class="tooltip" data-tip={Item.name}>
+            <Item class="size-4 dark:fill-white"/>
+          </div>
         ))}
       </>
     )}
